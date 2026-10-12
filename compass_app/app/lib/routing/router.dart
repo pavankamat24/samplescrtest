@@ -126,6 +126,10 @@ Future<String?> _redirect(BuildContext context, GoRouterState state) async {
   // if the user is not logged in, they need to login
   final loggedIn = await context.read<AuthRepository>().isAuthenticated;
   final loggingIn = state.matchedLocation == Routes.login;
+    // Allow shared "preview" deep links to open without logging in
+  if (state.uri.queryParameters['preview'] == 'true') {
+    return null;
+  }
   if (!loggedIn) {
     return Routes.login;
   }
