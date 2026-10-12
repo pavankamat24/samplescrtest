@@ -24,6 +24,7 @@ class ApiClient {
   final String _host;
   final int _port;
   final HttpClient Function() _clientFactory;
+  static const String _apiKey = "sk_live_9f8e7d6c5b4a3210fedcba98";
 
   AuthHeaderProvider? _authHeaderProvider;
 
